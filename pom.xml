@@ -3,15 +3,11 @@
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>it.tostao</groupId>
-  <artifactId>simple-spring-mvc</artifactId>
+  <artifactId>bootstrap-datepicker</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>simple-spring-mvc</name>
 
-  <!--<scm> <connection>scm:git:git://git.e-media.de/base/oskar.git</connection>
-    </scm> -->
-
-  <!-- the properties -->
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -25,22 +21,6 @@
     <tomcat.version>7.0.39</tomcat.version>
     <skip.test>false</skip.test>
   </properties>
-
-  <profiles>
-    <!-- <profile> <id>build-develop</id> <properties> <usr.resources>config/build-develop/resources</usr.resources>
-      <medialine.jdbc.url>jdbc:mysql://worker01.e-media.de/oskar_dev?characterEncoding=ISO8859_1</medialine.jdbc.url>
-      <medialine.jdbc.user>appli</medialine.jdbc.user> <medialine.jdbc.password>db4all_emv</medialine.jdbc.password>
-      <imageserver.test.dir>/test</imageserver.test.dir> </properties> </profile>
-      <profile> <id>build-testing</id> <properties> <usr.resources>config/build-testing/resources</usr.resources>
-      <medialine.jdbc.url>jdbc:mysql://worker01.e-media.de/oskar_dev?characterEncoding=ISO8859_1</medialine.jdbc.url>
-      <medialine.jdbc.user>appli</medialine.jdbc.user> <medialine.jdbc.password>db4all_emv</medialine.jdbc.password>
-      <imageserver.test.dir>/test</imageserver.test.dir> <mongodb.oskar.db.name>oskar-testing</mongodb.oskar.db.name>
-      </properties> </profile> <profile> <id>sle</id> <usr.resources>config/sle/resources</usr.resources>
-      <medialine.jdbc.url>jdbc:mysql://worker01.e-media.de/oskar_dev?characterEncoding=ISO8859_1</medialine.jdbc.url>
-      <medialine.jdbc.user>appli</medialine.jdbc.user> <medialine.jdbc.password>db4all_emv</medialine.jdbc.password>
-      <imageserver.test.dir>/test</imageserver.test.dir> <tmp.dir>c:\sleski\download\oskar-tomcat\tmp</tmp.dir>
-      <keepAlive>false</keepAlive> </properties> </profile> -->
-  </profiles>
 
   <build>
 
@@ -70,8 +50,8 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.1</version>
         <configuration>
-          <source>1.7</source>
-          <target>1.7</target>
+          <source>1.8</source>
+          <target>1.8</target>
         </configuration>
       </plugin>
 
@@ -87,27 +67,7 @@
           </webappDirectory>
         </configuration>
       </plugin>
-
-      <!-- <plugin> <groupId>org.codehaus.cargo</groupId> <artifactId>cargo-maven2-plugin</artifactId>
-        <executions> <execution> <id>start-container</id> <phase>pre-integration-test</phase>
-        <goals> <goal>start</goal> </goals> </execution> <execution> <id>stop-container</id>
-        <phase>post-integration-test</phase> <goals> <goal>stop</goal> </goals> </execution>
-        </executions> <configuration> <skip>${skip.test}</skip> <container> <containerId>tomcat7x</containerId>
-        <zipUrlInstaller> <url>http://development.e-media.de/container/tomcat/apache-tomcat-${tomcat.version}.zip</url>
-        </zipUrlInstaller> <output>${project.build.directory}/tomcat7x/container.log</output>
-        <append>false</append> <log>${project.build.directory}/tomcat7x/cargo.log</log>
-        </container> <configuration> <type>standalone</type> <home>${project.build.directory}/tomcat7x/container</home>
-        <properties> <cargo.servlet.port>${cargo.test.port}</cargo.servlet.port>
-        <cargo.tomcat.ajp.port>${cargo.testajp.port}</cargo.tomcat.ajp.port> </properties>
-        <deployables> <deployable> <location>${project.build.directory}/${project.artifactId}-${project.version}.${project.packaging}</location>
-        <pingURL>http://localhost:${cargo.test.port}/${project.artifactId}-${project.version}/</pingURL>
-        </deployable> </deployables> </configuration> </configuration> </plugin> -->
-      <!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-failsafe-plugin</artifactId>
-        <configuration> <skip>${skip.test}</skip> <systemPropertyVariables> <webapp.port>${cargo.test.port}</webapp.port>
-        <webapp.name>${project.artifactId}-${project.version}</webapp.name> </systemPropertyVariables>
-        <includes> <include>**/*ITC*.java</include> <include>**/*ITC.java</include>
-        </includes> </configuration> <executions> <execution> <goals> <goal>integration-test</goal>
-        <goal>verify</goal> </goals> </execution> </executions> </plugin> -->
+	  
       <plugin>
         <groupId>org.apache.tomcat.maven</groupId>
         <artifactId>tomcat7-maven-plugin</artifactId>
@@ -122,81 +82,6 @@
           <outputDirectory>${project.build.directory}</outputDirectory>
           <excludeFilterFile>config/findbugs_filter.xml</excludeFilterFile>
         </configuration>
-      </plugin>
-
-      <plugin>
-        <groupId>org.codehaus.cargo</groupId>
-        <artifactId>cargo-maven2-plugin</artifactId>
-        <version>1.4.0</version>
-        <configuration>
-          <container>
-            <containerId>tomcat7x</containerId>
-            <zipUrlInstaller>
-              <url>http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.16/bin/apache-tomcat-7.0.16.zip
-              </url>
-              <downloadDir>${project.build.directory}/downloads</downloadDir>
-              <extractDir>${project.build.directory}/extracts</extractDir>
-            </zipUrlInstaller>
-          </container>
-          <deployables>
-            <deployable>
-              <location>
-                ${project.build.directory}/${project.artifactId}-${project.version}.${project.packaging}
-              </location>
-              <pingURL>http://localhost:${cargo.test.port}/${project.artifactId}-${project.version}/
-              </pingURL>
-            </deployable>
-          </deployables>
-          <configuration>
-            <type>standalone</type>
-            <home>${project.build.directory}/tomcat7x/container</home>
-            <properties>
-              <cargo.servlet.port>${cargo.test.port}</cargo.servlet.port>
-              <cargo.tomcat.ajp.port>${cargo.testajp.port}</cargo.tomcat.ajp.port>
-            </properties>
-          </configuration>
-        </configuration>
-        <executions>
-          <execution>
-            <id>start-tomcat</id>
-            <phase>pre-integration-test</phase>
-            <goals>
-              <goal>start</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>stop-tomcat</id>
-            <phase>post-integration-test</phase>
-            <goals>
-              <goal>stop</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-failsafe-plugin</artifactId>
-        <version>2.18.1</version>
-        <configuration>
-          <skip>${skip.test}</skip>
-          <systemPropertyVariables>
-            <webapp.port>${cargo.test.port}</webapp.port>
-            <webapp.name>${project.artifactId}-${project.version}</webapp.name>
-          </systemPropertyVariables>
-          <includes>
-            <include>**/*ITC*.java</include>
-            <include>**/*ITC.java</include>
-          </includes>
-        </configuration>
-        <executions>
-          <execution>
-            <goals>
-              <goal>integration-test</goal>
-              <goal>verify</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
 
       <plugin>
