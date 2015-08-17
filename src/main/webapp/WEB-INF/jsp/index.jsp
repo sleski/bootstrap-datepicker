@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="de" dir="ltr">
 <head>
-	<title>Tostao IT blog</title>
+	<title>Bootstrap datepicker test!</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link href="<c:url value="/static/bootstrap-3.0.0/css/bootstrap.css" />" rel="stylesheet" type="text/css" />
 	<link href="<c:url value="/static/bootstrap-3.0.0/css/bootstrap.min.css" />" rel="stylesheet" type="text/css" />
