@@ -1,0 +1,1 @@
+how formatted and display java.util.Date in twitter bootstrap datepicker?

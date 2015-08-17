@@ -1,1 +1,11 @@
-h
+target
+.classpath
+.project
+.settings
+.checkstyle
+*.swp
+.idea
+*.iml
+logs/
+oskar-bei-mysql/config/solr/home/collection1/data/
+oskar-bei-mysql/config/solr/home/collection1/conf/dataimport.properties

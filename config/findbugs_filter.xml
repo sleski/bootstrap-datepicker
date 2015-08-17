@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter>
+  <Match>
+    <Class name="de.gjem.oskar.service.CustomUserDetailsService" />
+    <Method name="getAuthorities" />
+    <Bug pattern="SF_SWITCH_FALLTHROUGH" />
+  </Match>
+</FindBugsFilter>
