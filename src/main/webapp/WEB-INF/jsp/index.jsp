@@ -10,7 +10,7 @@
 	<link href="<c:url value="/static/bootstrap-3.0.0/css/bootstrap-theme.css" />" rel="stylesheet" type="text/css" />
 	<link href="<c:url value="/static/bootstrap-3.0.0/css/bootstrap-theme.min.css" />" rel="stylesheet" type="text/css" />
 	<script src="<c:url value="/static/jquery-1.9.1/jquery.min.js" />"></script>
-	<script src="<c:url value="/static/bootstrap-3.0.0/js/bootstrap.js" />"></script>
+	<%--<script src="<c:url value="/static/bootstrap-3.0.0/js/bootstrap.js" />"></script>--%>
 	<script src="<c:url value="/static/bootstrap-3.0.0/js/bootstrap.min.js" />"></script>
 	<script src="<c:url value="/static/js/angular.directive.js" />"></script>
 	<script src="<c:url value="/static/js/angular.min.js" />"></script>
